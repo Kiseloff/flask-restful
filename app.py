@@ -6,6 +6,9 @@ import random
 from quotes import ai_quotes
 
 
+app = Flask(__name__)
+api = Api(app)
+
 class Quote(Resource):
     def get(self, id=0):
         if id == 0:
@@ -58,10 +61,7 @@ class Quote(Resource):
         ai_quotes = [qoute for qoute in ai_quotes if qoute["id"] != id]
         return f"Quote with id {id} is deleted.", 200
 
+api.add_resource(Quote, "/ai-quotes", "/ai-quotes/", "/ai-quotes/<int:id>")
 
 if __name__ == '__main__':
-    app = Flask(__name__)
-    api = Api(app)
-    api.add_resource(Quote, "/ai-quotes", "/ai-quotes/", "/ai-quotes/<int:id>")
-
     app.run(debug=True)
