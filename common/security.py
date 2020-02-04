@@ -1,4 +1,4 @@
-from user import User
+from common.user import User
 
 
 users = [

@@ -3,9 +3,6 @@ from flask_restful import Api, Resource, reqparse
 
 import random
 
-from quotes import ai_quotes
-
-
 app = Flask(__name__)
 api = Api(app)
 
